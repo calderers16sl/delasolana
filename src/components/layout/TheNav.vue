@@ -1,0 +1,93 @@
+<script setup>
+import { onMounted, onBeforeUnmount, ref } from 'vue'
+
+const scrolled = ref(false)
+const menuOpen = ref(false)
+
+const items = [
+  { label: 'La Destil·leria', href: '#destilleria' },
+  { label: 'El Procés', href: '#proces' },
+  { label: 'Destil·lacions', href: '#destilacions' },
+  { label: 'Matèria primera', href: '#origen' },
+  { label: 'Contacte', href: '#contacte' },
+]
+
+function onScroll() {
+  scrolled.value = window.scrollY > 12
+}
+
+function closeMenu() {
+  menuOpen.value = false
+}
+
+onMounted(() => {
+  onScroll()
+  window.addEventListener('scroll', onScroll, { passive: true })
+})
+onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
+</script>
+
+<template>
+  <a href="#hero" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-cream">
+    Saltar al contingut
+  </a>
+  <header
+    class="sticky top-0 z-50 backdrop-blur transition-all duration-300"
+    :class="scrolled ? 'bg-cream/92 border-b border-hairline-soft' : 'bg-cream/60'"
+  >
+    <div class="container-solana flex h-16 items-center justify-between lg:h-20">
+      <a href="#hero" class="group flex items-baseline gap-2 font-display text-ink" @click="closeMenu">
+        <span class="text-xl tracking-[-0.02em] lg:text-2xl">La Solana</span>
+        <span class="hidden text-[0.7rem] uppercase tracking-[0.28em] text-copper lg:inline">Destil·leria</span>
+      </a>
+
+      <nav class="hidden items-center gap-8 lg:flex" aria-label="Menú principal">
+        <a
+          v-for="item in items"
+          :key="item.href"
+          :href="item.href"
+          class="group relative text-[0.82rem] font-medium uppercase tracking-[0.2em] text-ink/80 transition-colors duration-300 hover:text-ink"
+        >
+          {{ item.label }}
+          <span class="pointer-events-none absolute -bottom-1.5 left-0 right-0 h-px origin-left scale-x-0 bg-copper transition-transform duration-500 ease-out group-hover:scale-x-100" />
+        </a>
+      </nav>
+
+      <button
+        type="button"
+        class="flex h-10 w-10 flex-col items-end justify-center gap-1.5 lg:hidden"
+        :aria-expanded="menuOpen"
+        aria-controls="mobile-menu"
+        @click="menuOpen = !menuOpen"
+      >
+        <span class="sr-only">{{ menuOpen ? 'Tancar menú' : 'Obrir menú' }}</span>
+        <span
+          class="block h-px bg-ink transition-all duration-300"
+          :class="menuOpen ? 'w-6 translate-y-[3.5px] rotate-45' : 'w-6'"
+        />
+        <span
+          class="block h-px bg-ink transition-all duration-300"
+          :class="menuOpen ? 'w-6 -translate-y-[3.5px] -rotate-45' : 'w-4'"
+        />
+      </button>
+    </div>
+
+    <div
+      id="mobile-menu"
+      class="overflow-hidden border-t border-hairline-soft bg-cream transition-[max-height] duration-500 ease-out lg:hidden"
+      :class="menuOpen ? 'max-h-[520px]' : 'max-h-0'"
+    >
+      <nav class="container-solana flex flex-col py-4" aria-label="Menú mòbil">
+        <a
+          v-for="item in items"
+          :key="item.href"
+          :href="item.href"
+          class="border-b border-hairline-soft py-4 font-display text-xl text-ink last:border-b-0"
+          @click="closeMenu"
+        >
+          {{ item.label }}
+        </a>
+      </nav>
+    </div>
+  </header>
+</template>
