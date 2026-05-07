@@ -1,5 +1,8 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
 import { useReveal } from '../../composables/useReveal.js'
+
+const { t } = useI18n()
 const { target, isRevealed } = useReveal()
 </script>
 
@@ -7,40 +10,27 @@ const { target, isRevealed } = useReveal()
   <section id="missatge" class="section-y bg-paper" aria-labelledby="missatge-title">
     <div class="container-solana">
       <div ref="target" class="reveal mx-auto max-w-3xl" :class="{ 'is-revealed': isRevealed }">
-        <p class="eyebrow text-center">Missatge de La Solana</p>
+        <p class="eyebrow text-center">{{ t('message.eyebrow') }}</p>
         <h2
           id="missatge-title"
           class="mt-6 text-center font-display text-[clamp(2.25rem,5vw,3.75rem)] font-light leading-[1.05] text-ink"
         >
-          Més de 35 anys d'experiència<br class="hidden sm:block" />
-          <span class="italic text-copper">ens avalen</span> i defineixen<br class="hidden sm:block" />
-          la nostra manera de treballar.
+          {{ t('message.titleLine1') }}<br class="hidden sm:block" />
+          <span class="italic text-copper">{{ t('message.titleEmphasis') }}</span> {{ t('message.titleLine3') }}<br class="hidden sm:block" />
+          {{ t('message.titleLine4') }}
         </h2>
 
         <div class="mx-auto mt-12 max-w-2xl prose-solana text-[1.0625rem]">
-          <p>
-            Destil·leria La Solana és una destil·ladora premium ubicada a
-            l'Empordà, creada per treballar únicament amb productes naturals
-            d'alta qualitat i portar cada destil·lació al màxim nivell de precisió
-            possible.
-          </p>
-          <p>
-            Per a nosaltres, el resultat final depèn tant de l'origen de la
-            matèria primera com de la qualitat real del sistema de producció. La
-            destil·ladora, el serpentí, els materials i la conducció del procés
-            formen part essencial del producte.
-          </p>
-          <p>
-            Treballem amb un nivell d'exigència alt perquè el nostre objectiu no
-            és produir més, sinó destil·lar millor.
-          </p>
+          <p>{{ t('message.body1') }}</p>
+          <p>{{ t('message.body2') }}</p>
+          <p>{{ t('message.body3') }}</p>
         </div>
 
         <div class="mx-auto mt-14 flex max-w-xl items-center gap-6">
           <span class="h-px flex-1 bg-copper/60" aria-hidden="true" />
           <p class="font-display text-[clamp(1.25rem,2vw,1.75rem)] italic leading-snug text-ink">
-            Qualitat extrema.<br />
-            <span class="text-copper">Destil·lem amb criteri.</span>
+            {{ t('message.taglineLine1') }}<br />
+            <span class="text-copper">{{ t('message.taglineEmphasis') }}</span>
           </p>
           <span class="h-px flex-1 bg-copper/60" aria-hidden="true" />
         </div>

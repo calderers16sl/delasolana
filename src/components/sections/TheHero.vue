@@ -1,8 +1,10 @@
 <script setup>
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import BaseButton from '../ui/BaseButton.vue'
 import { useReveal } from '../../composables/useReveal.js'
 
+const { t } = useI18n()
 const { target, isRevealed } = useReveal()
 const videoLoaded = ref(false)
 </script>
@@ -18,37 +20,31 @@ const videoLoaded = ref(false)
         >
           <div class="flex items-center gap-4 text-copper">
             <span class="h-px w-10 bg-copper" aria-hidden="true" />
-            <span class="eyebrow">Destil·leria La Solana · Empordà</span>
+            <span class="eyebrow">{{ t('hero.eyebrow') }}</span>
           </div>
 
           <h1
             id="hero-title"
             class="mt-10 font-display text-[clamp(3rem,7.2vw,6.75rem)] font-light leading-[0.98] tracking-[-0.03em] text-ink"
           >
-            Destil·lació
-            <span class="block italic text-copper">d'olis essencials</span>
-            <span class="block">a l'Empordà</span>
+            {{ t('hero.titleLine1') }}
+            <span class="block italic text-copper">{{ t('hero.titleEmphasis') }}</span>
+            <span class="block">{{ t('hero.titleLine3') }}</span>
           </h1>
 
           <p class="mt-10 max-w-xl font-display text-[clamp(1.25rem,1.6vw,1.5rem)] italic leading-[1.45] text-clay">
-            Destil·lem únicament productes naturals d'alta qualitat amb un sistema
-            de producció d'alt nivell, pensat per obtenir la màxima puresa,
-            precisió i expressió aromàtica.
+            {{ t('hero.lede') }}
           </p>
 
           <p class="prose-solana mt-8 max-w-xl text-[1rem]">
-            A Destil·leria La Solana, una gran part del valor afegit no rau només
-            en la matèria primera, sinó també en la qualitat de la destil·ladora,
-            del serpentí i dels materials de producció. Aquesta infraestructura,
-            situada a l'Empordà, ens permet treballar cada destil·lació amb una
-            exigència extrema i obtenir un resultat de gamma premium.
+            {{ t('hero.body') }}
           </p>
 
           <div class="mt-12 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:gap-10">
-            <BaseButton href="#destilleria">Descobrir la destil·leria</BaseButton>
+            <BaseButton href="#destilleria">{{ t('hero.cta') }}</BaseButton>
             <div class="flex items-center gap-4">
               <span class="h-px w-8 bg-copper/60" aria-hidden="true" />
-              <span class="font-display text-base italic text-clay">Destil·lació premium des de l'origen</span>
+              <span class="font-display text-base italic text-clay">{{ t('hero.tagline') }}</span>
             </div>
           </div>
         </div>
@@ -66,14 +62,14 @@ const videoLoaded = ref(false)
                   muted
                   playsinline
                   preload="metadata"
-                  aria-label="Destil·lació al taller La Solana, Empordà"
+                  :aria-label="t('hero.videoAlt')"
                   class="absolute inset-0 h-full w-full object-cover transition-[transform,opacity] duration-[1200ms] ease-out will-change-transform"
                   :class="videoLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'"
                   @loadeddata="videoLoaded = true"
                 />
               </div>
               <figcaption class="mt-3 font-display text-sm italic text-clay">
-                Serpentí d'inox — taller La Solana, Empordà
+                {{ t('hero.videoCaption') }}
               </figcaption>
             </figure>
           </div>
@@ -83,9 +79,9 @@ const videoLoaded = ref(false)
 
     <div class="container-solana">
       <div class="flex items-center justify-between border-t border-hairline pb-8 pt-6 text-[0.72rem] uppercase tracking-[0.28em] text-clay/70">
-        <span>Est. Empordà</span>
-        <span class="hidden sm:inline">+35 anys d'experiència</span>
-        <span>Scroll</span>
+        <span>{{ t('hero.statsLocation') }}</span>
+        <span class="hidden sm:inline">{{ t('hero.statsExperience') }}</span>
+        <span>{{ t('hero.scroll') }}</span>
       </div>
     </div>
   </section>

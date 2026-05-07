@@ -1,35 +1,29 @@
 <script setup>
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import BaseButton from '../ui/BaseButton.vue'
 import ImageSlot from '../ui/ImageSlot.vue'
 import { useReveal } from '../../composables/useReveal.js'
+
+const { t } = useI18n()
 const { target, isRevealed } = useReveal()
 
-const blocs = [
-  {
-    n: '01',
-    tag: 'Cultiu propi',
-    title: '10.000 xiprés',
-    text: 'Una plantació pròpia de xiprés mediterrani, criada amb paciència i destinada a obtenir essències netes, fidels al perfil aromàtic de l\'Empordà.',
-  },
-  {
-    n: '02',
-    tag: 'Cultiu propi',
-    title: 'Hectàrees de julivert',
-    text: 'Camps dedicats que ens asseguren un volum constant i una qualitat homogènia, collits en el moment òptim per a cada destil·lació.',
-  },
-  {
-    n: '03',
-    tag: 'Importació · Pacífic',
-    title: 'Schinus molle',
-    text: 'Llavors importades de la vessant pacífica de Llatinoamèrica, on l\'arbre creix en el seu hàbitat originari i ofereix un caràcter aromàtic especiat i lluminós.',
-  },
-  {
-    n: '04',
-    tag: 'Importació · Atlàntic',
-    title: 'Schinus terebinthifolius',
-    text: 'Origen a la costa atlàntica del Brasil, una espècie que aporta un perfil resinós i pebrat amb una identitat botànica clarament diferenciada.',
-  },
+// Latin species names for molle/terebinthifolius are not translated.
+const blockKeys = [
+  { key: 'cypress', n: '01', latinTitle: null },
+  { key: 'parsley', n: '02', latinTitle: null },
+  { key: 'molle', n: '03', latinTitle: 'Schinus molle' },
+  { key: 'terebinthifolius', n: '04', latinTitle: 'Schinus terebinthifolius' },
 ]
+
+const blocs = computed(() =>
+  blockKeys.map((b) => ({
+    n: b.n,
+    tag: t(`origins.blocks.${b.key}.tag`),
+    title: b.latinTitle ?? t(`origins.blocks.${b.key}.title`),
+    text: t(`origins.blocks.${b.key}.text`),
+  })),
+)
 </script>
 
 <template>
@@ -38,30 +32,20 @@ const blocs = [
       <div ref="target" class="reveal" :class="{ 'is-revealed': isRevealed }">
         <div class="grid gap-14 lg:grid-cols-12">
           <div class="lg:col-span-5">
-            <p class="eyebrow">Matèria primera</p>
+            <p class="eyebrow">{{ t('origins.eyebrow') }}</p>
             <h2
               id="origen-title"
               class="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] font-light leading-[1.05] text-ink"
             >
-              Cultivada per nosaltres,<br />
-              <span class="italic text-copper">seleccionada al món</span>.
+              {{ t('origins.titleLine1') }}<br />
+              <span class="italic text-copper">{{ t('origins.titleEmphasis') }}</span>{{ t('origins.titleSuffix') }}
             </h2>
           </div>
           <div class="lg:col-span-6 lg:col-start-7">
             <div class="prose-solana">
+              <p>{{ t('origins.body1') }}</p>
               <p>
-                A la Solana no esperem el subministrament: el cultivem. Tenim
-                producció agrícola pròpia, amb 10.000 xiprés i hectàrees
-                dedicades al julivert que destinem íntegrament a la destil·lació
-                — una garantia de disponibilitat, traçabilitat i sostenibilitat
-                real.
-              </p>
-              <p>
-                Per als botànics que demanen un origen específic, anem a
-                buscar-lo. Importem llavors de <em>Schinus molle</em> de la
-                vessant pacífica de Llatinoamèrica i <em>Schinus terebinthifolius</em>
-                de la costa atlàntica del Brasil, dues espècies que només
-                expressen el seu caràcter ple en el seu territori d'origen.
+                {{ t('origins.body2Prefix') }}<em>Schinus molle</em>{{ t('origins.body2Middle') }}<em>Schinus terebinthifolius</em>{{ t('origins.body2Suffix') }}
               </p>
             </div>
           </div>
@@ -69,13 +53,13 @@ const blocs = [
 
         <div class="mt-16 grid gap-6 lg:grid-cols-12 lg:gap-10">
           <div class="lg:col-span-2 lg:pt-2">
-            <p class="eyebrow">Producció pròpia</p>
+            <p class="eyebrow">{{ t('origins.productionEyebrow') }}</p>
           </div>
           <div class="lg:col-span-10">
             <ImageSlot
               video="/produccio-julivert.mp4"
-              alt="Camps de julivert de cultiu propi a la Solana"
-              caption="Cultiu propi · Camps de julivert"
+              :alt="t('origins.productionAlt')"
+              :caption="t('origins.productionCaption')"
               ratio="16/9"
               tone="clay"
             />
@@ -100,7 +84,7 @@ const blocs = [
         </div>
 
         <div class="mt-14 flex justify-center">
-          <BaseButton href="#territori" variant="ghost">Conèixer el territori</BaseButton>
+          <BaseButton href="#territori" variant="ghost">{{ t('origins.cta') }}</BaseButton>
         </div>
       </div>
     </div>

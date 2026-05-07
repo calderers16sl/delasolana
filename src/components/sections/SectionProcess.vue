@@ -1,52 +1,31 @@
 <script setup>
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import DistillationCard from '../ui/DistillationCard.vue'
 import SectionEyebrow from '../ui/SectionEyebrow.vue'
 import { useReveal } from '../../composables/useReveal.js'
 
+const { t } = useI18n()
 const { target, isRevealed } = useReveal()
 
-const passos = [
-  {
-    index: 'Fase 01',
-    title: 'Recepció',
-    subtitle: 'Arribada de la matèria',
-    video: '/unloading.mp4',
-    tone: 'copper',
-    text: "L'arribada del producte natural és el primer punt de control. Cada lot es revisa abans d'entrar al procés.",
-  },
-  {
-    index: 'Fase 02',
-    title: 'Càrrega',
-    subtitle: 'Schinus molle al destil·lador',
-    video: '/carrega.mp4',
-    tone: 'clay',
-    text: "La matèria viva es disposa amb cura dins la destil·ladora, preservant-ne l'estructura i l'expressió aromàtica.",
-  },
-  {
-    index: 'Fase 03',
-    title: 'Destil·lació',
-    subtitle: "Treball de precisió a l'inox",
-    video: '/destilacio-jordi.mp4',
-    tone: 'copper',
-    text: 'El destil·lat avança lentament. Llegim cada fase i ajustem temperatures i tirades segons el comportament de la matèria.',
-  },
-  {
-    index: 'Fase 04',
-    title: 'Control del destil·lat',
-    subtitle: 'Seguiment i ajust en temps real',
-    video: '/distillation_2.mp4',
-    tone: 'clay',
-    text: "Supervisem la sortida del destil·lat i ajustem els paràmetres per garantir la integritat aromàtica i la qualitat final del producte.",
-  },
-  {
-    index: 'Fase 05',
-    title: 'Embotellament',
-    subtitle: 'Tancament i conservació',
-    video: '/bottling.mp4',
-    tone: 'clay',
-    text: "El producte final es transfereix i es conserva amb el mateix criteri tècnic que ha guiat tota la destil·lació.",
-  },
+const stepKeys = [
+  { key: 'reception', n: '01', video: '/unloading.mp4', tone: 'copper' },
+  { key: 'loading', n: '02', video: '/carrega.mp4', tone: 'clay' },
+  { key: 'distill', n: '03', video: '/destilacio-jordi.mp4', tone: 'copper' },
+  { key: 'monitor', n: '04', video: '/distillation_2.mp4', tone: 'clay' },
+  { key: 'bottling', n: '05', video: '/bottling.mp4', tone: 'clay' },
 ]
+
+const passos = computed(() =>
+  stepKeys.map((s) => ({
+    index: t('process.phaseLabel', { n: s.n }),
+    title: t(`process.steps.${s.key}.title`),
+    subtitle: t(`process.steps.${s.key}.subtitle`),
+    text: t(`process.steps.${s.key}.text`),
+    video: s.video,
+    tone: s.tone,
+  })),
+)
 </script>
 
 <template>
@@ -55,34 +34,22 @@ const passos = [
       <div ref="target" class="reveal" :class="{ 'is-revealed': isRevealed }">
         <div class="mx-auto max-w-2xl text-center">
           <div class="flex justify-center">
-            <SectionEyebrow index="02" label="El Procés" />
+            <SectionEyebrow index="02" :label="t('process.eyebrow')" />
           </div>
 
           <h2
             id="proces-title"
             class="mt-8 font-display text-[clamp(2rem,4.5vw,3.25rem)] font-light leading-[1.05] text-ink"
           >
-            Precisió, control
-            i <span class="italic text-copper">lectura tècnica</span>
-            de cada destil·lació.
+            {{ t('process.titleLine1') }}
+            {{ t('process.titleConnector') }} <span class="italic text-copper">{{ t('process.titleEmphasis') }}</span>
+            {{ t('process.titleLine3') }}
           </h2>
 
           <div class="mt-8 prose-solana">
-            <p>
-              Cada producte natural requereix una interpretació pròpia. Per això
-              entenem la destil·lació com un procés de lectura tècnica i
-              d'execució precisa, on cada decisió influeix en el resultat final.
-            </p>
-            <p>
-              Ajustem cada destil·lació per extreure el millor perfil possible de
-              la matèria primera, buscant màxima qualitat, puresa i fidelitat
-              aromàtica.
-            </p>
-            <p>
-              No treballem la destil·lació com una simple operació productiva,
-              sinó com una pràctica tècnica en què la precisió és
-              essencial.
-            </p>
+            <p>{{ t('process.body1') }}</p>
+            <p>{{ t('process.body2') }}</p>
+            <p>{{ t('process.body3') }}</p>
           </div>
         </div>
 

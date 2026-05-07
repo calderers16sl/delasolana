@@ -1,7 +1,10 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
 import ImageSlot from '../ui/ImageSlot.vue'
 import SectionEyebrow from '../ui/SectionEyebrow.vue'
 import { useReveal } from '../../composables/useReveal.js'
+
+const { t } = useI18n()
 const { target, isRevealed } = useReveal()
 </script>
 
@@ -12,60 +15,46 @@ const { target, isRevealed } = useReveal()
         <div class="lg:col-span-6">
           <ImageSlot
             video="/desiladora.mp4"
-            alt="Interior de la destil·leria La Solana amb destil·ladora d'inox"
-            caption="La destil·ladora — cor del procés"
+            :alt="t('distillery.imageAlt')"
+            :caption="t('distillery.imageCaption')"
             ratio="16/9"
             tone="copper"
           />
         </div>
 
         <div class="lg:col-span-6 lg:pl-4 xl:pl-10">
-          <SectionEyebrow index="01" label="La Destil·leria" />
+          <SectionEyebrow index="01" :label="t('distillery.eyebrow')" />
 
           <h2
             id="destilleria-title"
             class="mt-8 font-display text-[clamp(2rem,4.5vw,3.25rem)] font-light leading-[1.05] text-ink"
           >
-            Equip, materials, territori<br />
-            i <span class="italic text-copper">filosofia</span> de producció.
+            {{ t('distillery.titleLine1') }}<br />
+            {{ t('distillery.titleConnector') }} <span class="italic text-copper">{{ t('distillery.titleEmphasis') }}</span> {{ t('distillery.titleLine3') }}
           </h2>
 
           <div class="mt-8 prose-solana">
-            <p>
-              La Solana és una destil·ladora premium on la qualitat del
-              sistema de producció forma part directa del valor final. La nostra
-              infraestructura no és un detall tècnic secundari: és una eina
-              essencial per assolir una destil·lació més fina, més neta i més
-              precisa.
-            </p>
-            <p>
-              La qualitat de la destil·ladora, del serpentí i dels materials
-              utilitzats ens permet treballar amb més control i més sensibilitat
-              sobre cada tirada.
-            </p>
-            <p>
-              Mantenim una atenció constant sobre cada fase del procés.
-              Aquesta manera de treballar ens permet preservar l'exigència, la
-              coherència i la qualitat en cada producció.
-            </p>
+            <p>{{ t('distillery.body1') }}</p>
+            <p>{{ t('distillery.body2') }}</p>
+            <p>{{ t('distillery.body3') }}</p>
           </div>
 
           <dl class="mt-12 grid grid-cols-2 gap-x-8 gap-y-6 border-t border-hairline pt-8">
             <div>
-              <dt class="eyebrow !text-clay/70">Mètode</dt>
-              <dd class="mt-2 font-display text-xl text-ink">De precisió</dd>
+              <dt class="eyebrow !text-clay/70">{{ t('distillery.kv.method.k') }}</dt>
+              <dd class="mt-2 font-display text-xl text-ink">{{ t('distillery.kv.method.v') }}</dd>
             </div>
             <div>
-              <dt class="eyebrow !text-clay/70">Origen</dt>
-              <dd class="mt-2 font-display text-xl text-ink">Empordà</dd>
+              <dt class="eyebrow !text-clay/70">{{ t('distillery.kv.origin.k') }}</dt>
+              <dd class="mt-2 font-display text-xl text-ink">{{ t('distillery.kv.origin.v') }}</dd>
             </div>
             <div>
-              <dt class="eyebrow !text-clay/70">Matèria</dt>
-              <dd class="mt-2 font-display text-xl text-ink">Natural, alta qualitat</dd>
+              <dt class="eyebrow !text-clay/70">{{ t('distillery.kv.material.k') }}</dt>
+              <dd class="mt-2 font-display text-xl text-ink">{{ t('distillery.kv.material.v') }}</dd>
             </div>
             <div>
-              <dt class="eyebrow !text-clay/70">Enfocament</dt>
-              <dd class="mt-2 font-display text-xl text-ink">Premium</dd>
+              <dt class="eyebrow !text-clay/70">{{ t('distillery.kv.focus.k') }}</dt>
+              <dd class="mt-2 font-display text-xl text-ink">{{ t('distillery.kv.focus.v') }}</dd>
             </div>
           </dl>
         </div>

@@ -10,6 +10,9 @@ import SectionValueProp from './components/sections/SectionValueProp.vue'
 import SectionOrigins from './components/sections/SectionOrigins.vue'
 import SectionTerritory from './components/sections/SectionTerritory.vue'
 import SectionContact from './components/sections/SectionContact.vue'
+import { useDocumentMeta } from './composables/useDocumentMeta.js'
+
+useDocumentMeta()
 </script>
 
 <template>

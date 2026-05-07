@@ -1,6 +1,9 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
 import ImageSlot from '../ui/ImageSlot.vue'
 import { useReveal } from '../../composables/useReveal.js'
+
+const { t } = useI18n()
 const { target, isRevealed } = useReveal()
 </script>
 
@@ -10,21 +13,21 @@ const { target, isRevealed } = useReveal()
       <div ref="target" class="reveal" :class="{ 'is-revealed': isRevealed }">
         <div class="grid items-end gap-12 lg:grid-cols-12">
           <div class="lg:col-span-4">
-            <p class="eyebrow">Territori</p>
+            <p class="eyebrow">{{ t('territory.eyebrow') }}</p>
             <h2
               id="territori-title"
               class="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] font-light leading-[1] text-ink"
             >
-              L'Empordà<br />
-              com a <span class="italic text-copper">origen</span><br />
-              i caràcter.
+              {{ t('territory.titleLine1') }}<br />
+              {{ t('territory.titleConnector') }} <span class="italic text-copper">{{ t('territory.titleEmphasis') }}</span><br />
+              {{ t('territory.titleLine3') }}
             </h2>
           </div>
           <div class="lg:col-span-8">
             <ImageSlot
               video="/emporda2.mp4"
-              alt="Paisatge de l'Empordà — llum, vegetació i territori"
-              caption="L'Empordà — llum, vegetació i temps"
+              :alt="t('territory.imageAlt')"
+              :caption="t('territory.imageCaption')"
               ratio="16/9"
               tone="clay"
             />
@@ -34,37 +37,24 @@ const { target, isRevealed } = useReveal()
         <div class="mt-16 grid gap-10 lg:grid-cols-12">
           <div class="lg:col-span-6 lg:col-start-4">
             <div class="prose-solana">
-              <p>
-                La Solana està ubicada a l'Empordà, un entorn que reforça la
-                nostra manera d'entendre el producte natural, el temps i el
-                procés.
-              </p>
-              <p>
-                No és només una ubicació. És part del caràcter de la
-                destil·leria. La llum, el paisatge, la relació amb la matèria
-                vegetal i una manera de fer més pausada i més precisa formen
-                part del nostre llenguatge.
-              </p>
-              <p>
-                Aquest context acompanya una producció orientada a
-                l'excel·lència, on cada detall importa i on la qualitat no es
-                negocia.
-              </p>
+              <p>{{ t('territory.body1') }}</p>
+              <p>{{ t('territory.body2') }}</p>
+              <p>{{ t('territory.body3') }}</p>
             </div>
           </div>
           <div class="lg:col-span-2 lg:col-start-11">
             <div class="flex flex-col gap-4 border-l border-hairline pl-6">
               <div>
-                <p class="eyebrow !text-clay/70">Latitud</p>
-                <p class="mt-1 font-display text-lg text-ink">42.16° N</p>
+                <p class="eyebrow !text-clay/70">{{ t('territory.stats.latitude.k') }}</p>
+                <p class="mt-1 font-display text-lg text-ink">{{ t('territory.stats.latitude.v') }}</p>
               </div>
               <div>
-                <p class="eyebrow !text-clay/70">Clima</p>
-                <p class="mt-1 font-display text-lg text-ink">Mediterrani</p>
+                <p class="eyebrow !text-clay/70">{{ t('territory.stats.climate.k') }}</p>
+                <p class="mt-1 font-display text-lg text-ink">{{ t('territory.stats.climate.v') }}</p>
               </div>
               <div>
-                <p class="eyebrow !text-clay/70">Tramuntana</p>
-                <p class="mt-1 font-display text-lg text-ink">Present</p>
+                <p class="eyebrow !text-clay/70">{{ t('territory.stats.tramuntana.k') }}</p>
+                <p class="mt-1 font-display text-lg text-ink">{{ t('territory.stats.tramuntana.v') }}</p>
               </div>
             </div>
           </div>

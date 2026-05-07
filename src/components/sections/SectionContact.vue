@@ -1,32 +1,38 @@
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { submitMessage } from '../../lib/contact.js'
 import { useReveal } from '../../composables/useReveal.js'
 
+const { t } = useI18n()
 const { target, isRevealed } = useReveal()
 
 const form = reactive({
   nom: '',
   email: '',
   organitzacio: '',
-  assumpte: 'Consulta',
+  assumpte: 'inquiry',
   missatge: '',
 })
+// errors holds i18n keys (not resolved strings) so messages re-render reactively when the locale changes.
 const errors = reactive({})
 const status = ref('idle') // idle | submitting | success | error
 
-const assumptes = ['Consulta', 'Col·laboració', 'Sol·licitar informació', 'Altres']
+const subjectKeys = ['inquiry', 'collaboration', 'info', 'other']
+const subjects = computed(() =>
+  subjectKeys.map((k) => ({ value: k, label: t(`contact.subjects.${k}`) })),
+)
 
 function validate() {
   const e = {}
-  if (!form.nom.trim()) e.nom = 'Indica el teu nom.'
+  if (!form.nom.trim()) e.nom = 'contact.errors.name'
   if (!form.email.trim()) {
-    e.email = 'Cal un correu electrònic.'
+    e.email = 'contact.errors.emailRequired'
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
-    e.email = 'El format del correu no és vàlid.'
+    e.email = 'contact.errors.emailFormat'
   }
   if (form.missatge.trim().length < 10) {
-    e.missatge = 'Explica una mica el teu projecte (mínim 10 caràcters).'
+    e.missatge = 'contact.errors.messageMin'
   }
   Object.keys(errors).forEach((k) => delete errors[k])
   Object.assign(errors, e)
@@ -56,7 +62,7 @@ function reset() {
   form.nom = ''
   form.email = ''
   form.organitzacio = ''
-  form.assumpte = 'Consulta'
+  form.assumpte = 'inquiry'
   form.missatge = ''
   Object.keys(errors).forEach((k) => delete errors[k])
   status.value = 'idle'
@@ -71,30 +77,28 @@ const fieldClass =
     <div class="container-solana">
       <div ref="target" class="reveal grid gap-14 lg:grid-cols-12 lg:gap-20" :class="{ 'is-revealed': isRevealed }">
         <div class="lg:col-span-5">
-          <p class="eyebrow">Contacte</p>
+          <p class="eyebrow">{{ t('contact.eyebrow') }}</p>
           <h2
             id="contacte-title"
             class="mt-6 font-display text-[clamp(2.25rem,5vw,3.75rem)] font-light leading-[1.02] text-ink"
           >
-            Parlem de<br />
-            <span class="italic text-copper">producte, procés</span><br />
-            i qualitat.
+            {{ t('contact.titleLine1') }}<br />
+            <span class="italic text-copper">{{ t('contact.titleEmphasis') }}</span><br />
+            {{ t('contact.titleLine3') }}
           </h2>
 
           <p class="prose-solana mt-8 max-w-md">
-            Si busques una destil·ladora amb enfocament premium,
-            criteri tècnic i una veritable exigència en el procés, ens agradarà
-            conèixer el teu projecte.
+            {{ t('contact.intro') }}
           </p>
 
           <div class="mt-12 space-y-6 border-t border-hairline pt-8 text-sm">
             <div>
-              <p class="eyebrow !text-clay/70">Ubicació</p>
-              <p class="mt-1 font-display text-lg text-ink">Empordà, Catalunya</p>
+              <p class="eyebrow !text-clay/70">{{ t('contact.info.locationKey') }}</p>
+              <p class="mt-1 font-display text-lg text-ink">{{ t('contact.info.locationValue') }}</p>
             </div>
             <div>
-              <p class="eyebrow !text-clay/70">Contacte</p>
-              <p class="mt-1 font-display text-lg text-ink">Professional &amp; col·laboracions</p>
+              <p class="eyebrow !text-clay/70">{{ t('contact.info.contactKey') }}</p>
+              <p class="mt-1 font-display text-lg text-ink">{{ t('contact.info.contactValue') }}</p>
             </div>
           </div>
         </div>
@@ -111,7 +115,7 @@ const fieldClass =
               >
                 <div class="grid gap-8 sm:grid-cols-2">
                   <div>
-                    <label for="nom" class="eyebrow !text-clay/70">Nom</label>
+                    <label for="nom" class="eyebrow !text-clay/70">{{ t('contact.fields.name') }}</label>
                     <input
                       id="nom"
                       v-model="form.nom"
@@ -122,10 +126,10 @@ const fieldClass =
                       :aria-describedby="errors.nom ? 'err-nom' : null"
                       @blur="onBlur('nom')"
                     />
-                    <p v-if="errors.nom" id="err-nom" class="mt-2 text-xs text-copper">{{ errors.nom }}</p>
+                    <p v-if="errors.nom" id="err-nom" class="mt-2 text-xs text-copper">{{ t(errors.nom) }}</p>
                   </div>
                   <div>
-                    <label for="email" class="eyebrow !text-clay/70">Correu electrònic</label>
+                    <label for="email" class="eyebrow !text-clay/70">{{ t('contact.fields.email') }}</label>
                     <input
                       id="email"
                       v-model="form.email"
@@ -136,13 +140,16 @@ const fieldClass =
                       :aria-describedby="errors.email ? 'err-email' : null"
                       @blur="onBlur('email')"
                     />
-                    <p v-if="errors.email" id="err-email" class="mt-2 text-xs text-copper">{{ errors.email }}</p>
+                    <p v-if="errors.email" id="err-email" class="mt-2 text-xs text-copper">{{ t(errors.email) }}</p>
                   </div>
                 </div>
 
                 <div class="grid gap-8 sm:grid-cols-2">
                   <div>
-                    <label for="organitzacio" class="eyebrow !text-clay/70">Organització <span class="normal-case tracking-normal text-clay/50">(opcional)</span></label>
+                    <label for="organitzacio" class="eyebrow !text-clay/70">
+                      {{ t('contact.fields.org') }}
+                      <span class="normal-case tracking-normal text-clay/50">{{ t('contact.fields.orgOptional') }}</span>
+                    </label>
                     <input
                       id="organitzacio"
                       v-model="form.organitzacio"
@@ -152,19 +159,19 @@ const fieldClass =
                     />
                   </div>
                   <div>
-                    <label for="assumpte" class="eyebrow !text-clay/70">Assumpte</label>
+                    <label for="assumpte" class="eyebrow !text-clay/70">{{ t('contact.fields.subject') }}</label>
                     <select
                       id="assumpte"
                       v-model="form.assumpte"
                       :class="fieldClass + ' appearance-none pr-6 bg-[url(\'data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 12 12%22><path fill=%22none%22 stroke=%22%237C614F%22 stroke-width=%221.2%22 d=%22M2 4l4 4 4-4%22/></svg>\')] bg-[length:12px_12px] bg-[right_0_center] bg-no-repeat'"
                     >
-                      <option v-for="a in assumptes" :key="a" :value="a">{{ a }}</option>
+                      <option v-for="a in subjects" :key="a.value" :value="a.value">{{ a.label }}</option>
                     </select>
                   </div>
                 </div>
 
                 <div>
-                  <label for="missatge" class="eyebrow !text-clay/70">Missatge</label>
+                  <label for="missatge" class="eyebrow !text-clay/70">{{ t('contact.fields.message') }}</label>
                   <textarea
                     id="missatge"
                     v-model="form.missatge"
@@ -172,23 +179,20 @@ const fieldClass =
                     :class="fieldClass + ' resize-none'"
                     :aria-invalid="!!errors.missatge"
                     :aria-describedby="errors.missatge ? 'err-missatge' : null"
-                    placeholder="Explica breument el teu projecte, matèria primera o consulta."
+                    :placeholder="t('contact.placeholder')"
                     @blur="onBlur('missatge')"
                   />
-                  <p v-if="errors.missatge" id="err-missatge" class="mt-2 text-xs text-copper">{{ errors.missatge }}</p>
+                  <p v-if="errors.missatge" id="err-missatge" class="mt-2 text-xs text-copper">{{ t(errors.missatge) }}</p>
                 </div>
 
                 <div class="flex flex-col items-start gap-6 pt-4 sm:flex-row sm:items-center sm:justify-between">
-                  <p class="text-xs text-clay/70">
-                    En enviar acceptes ser contactat per Destil·leria La Solana<br class="hidden sm:block" />
-                    en relació al teu projecte.
-                  </p>
+                  <p class="text-xs text-clay/70">{{ t('contact.privacy') }}</p>
                   <button
                     type="submit"
                     :disabled="status === 'submitting'"
                     class="group inline-flex items-center gap-3 rounded-full bg-ink px-7 py-4 text-sm font-medium text-cream transition-all duration-300 hover:bg-copper disabled:opacity-70"
                   >
-                    <span>{{ status === 'submitting' ? 'Enviant…' : 'Contactar' }}</span>
+                    <span>{{ status === 'submitting' ? t('contact.submit.sending') : t('contact.submit.idle') }}</span>
                     <svg class="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                       <path d="M1 8h13M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
@@ -196,26 +200,25 @@ const fieldClass =
                 </div>
 
                 <p v-if="status === 'error'" class="text-sm text-copper">
-                  No hem pogut enviar el missatge. Torna-ho a provar en uns moments.
+                  {{ t('contact.submitError') }}
                 </p>
               </form>
 
               <div v-else key="success" class="py-8 text-center">
-                <p class="eyebrow">Missatge rebut</p>
+                <p class="eyebrow">{{ t('contact.success.eyebrow') }}</p>
                 <p class="mt-6 font-display text-[clamp(1.5rem,3vw,2.25rem)] italic leading-tight text-ink">
-                  Gràcies, {{ form.nom || 'hola' }}.<br />
-                  <span class="text-copper">Et contactarem aviat.</span>
+                  {{ t('contact.success.greeting', { name: form.nom || t('contact.success.greetingFallback') }) }}<br />
+                  <span class="text-copper">{{ t('contact.success.tagline') }}</span>
                 </p>
                 <p class="prose-solana mx-auto mt-6 max-w-md text-[0.95rem]">
-                  Hem rebut la teva consulta. Revisarem el projecte i et
-                  respondrem en el termini de pocs dies.
+                  {{ t('contact.success.detail') }}
                 </p>
                 <button
                   type="button"
                   class="mt-10 text-sm uppercase tracking-[0.22em] text-copper hover:text-ink"
                   @click="reset"
                 >
-                  Enviar un altre missatge
+                  {{ t('contact.reset') }}
                 </button>
               </div>
             </transition>

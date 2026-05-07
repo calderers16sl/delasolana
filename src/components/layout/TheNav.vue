@@ -1,16 +1,20 @@
 <script setup>
-import { onMounted, onBeforeUnmount, ref } from 'vue'
+import { onMounted, onBeforeUnmount, ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+import LanguageSwitcher from '../ui/LanguageSwitcher.vue'
+
+const { t } = useI18n()
 
 const scrolled = ref(false)
 const menuOpen = ref(false)
 
-const items = [
-  { label: 'La Destil·leria', href: '#destilleria' },
-  { label: 'El Procés', href: '#proces' },
-  { label: 'Destil·lacions', href: '#destilacions' },
-  { label: 'Matèria primera', href: '#origen' },
-  { label: 'Contacte', href: '#contacte' },
-]
+const items = computed(() => [
+  { label: t('nav.items.destilleria'), href: '#destilleria' },
+  { label: t('nav.items.proces'), href: '#proces' },
+  { label: t('nav.items.destilacions'), href: '#destilacions' },
+  { label: t('nav.items.origen'), href: '#origen' },
+  { label: t('nav.items.contacte'), href: '#contacte' },
+])
 
 function onScroll() {
   scrolled.value = window.scrollY > 12
@@ -29,7 +33,7 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
 
 <template>
   <a href="#hero" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-cream">
-    Saltar al contingut
+    {{ t('nav.skip') }}
   </a>
   <header
     class="sticky top-0 z-50 backdrop-blur transition-all duration-300"
@@ -37,47 +41,51 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
   >
     <div class="container-solana flex h-16 items-center justify-between lg:h-20">
       <a href="#hero" class="group flex items-baseline gap-2 font-display text-ink" @click="closeMenu">
-        <span class="text-xl tracking-[-0.02em] lg:text-2xl">La Solana</span>
-        <span class="hidden text-[0.7rem] uppercase tracking-[0.28em] text-copper lg:inline">Destil·leria</span>
+        <span class="text-xl tracking-[-0.02em] lg:text-2xl">{{ t('nav.brand') }}</span>
+        <span class="hidden text-[0.7rem] uppercase tracking-[0.28em] text-copper lg:inline">{{ t('nav.brandSuffix') }}</span>
       </a>
 
-      <nav class="hidden items-center gap-8 lg:flex" aria-label="Menú principal">
-        <a
-          v-for="item in items"
-          :key="item.href"
-          :href="item.href"
-          class="group relative text-[0.82rem] font-medium uppercase tracking-[0.2em] text-ink/80 transition-colors duration-300 hover:text-ink"
-        >
-          {{ item.label }}
-          <span class="pointer-events-none absolute -bottom-1.5 left-0 right-0 h-px origin-left scale-x-0 bg-copper transition-transform duration-500 ease-out group-hover:scale-x-100" />
-        </a>
-      </nav>
+      <div class="flex items-center gap-2 lg:gap-6">
+        <nav class="hidden items-center gap-8 lg:flex" :aria-label="t('nav.aria.primary')">
+          <a
+            v-for="item in items"
+            :key="item.href"
+            :href="item.href"
+            class="group relative text-[0.82rem] font-medium uppercase tracking-[0.2em] text-ink/80 transition-colors duration-300 hover:text-ink"
+          >
+            {{ item.label }}
+            <span class="pointer-events-none absolute -bottom-1.5 left-0 right-0 h-px origin-left scale-x-0 bg-copper transition-transform duration-500 ease-out group-hover:scale-x-100" />
+          </a>
+        </nav>
 
-      <button
-        type="button"
-        class="flex h-10 w-10 flex-col items-end justify-center gap-1.5 lg:hidden"
-        :aria-expanded="menuOpen"
-        aria-controls="mobile-menu"
-        @click="menuOpen = !menuOpen"
-      >
-        <span class="sr-only">{{ menuOpen ? 'Tancar menú' : 'Obrir menú' }}</span>
-        <span
-          class="block h-px bg-ink transition-all duration-300"
-          :class="menuOpen ? 'w-6 translate-y-[3.5px] rotate-45' : 'w-6'"
-        />
-        <span
-          class="block h-px bg-ink transition-all duration-300"
-          :class="menuOpen ? 'w-6 -translate-y-[3.5px] -rotate-45' : 'w-4'"
-        />
-      </button>
+        <LanguageSwitcher class="hidden lg:block" placement="desktop" />
+
+        <button
+          type="button"
+          class="flex h-10 w-10 flex-col items-end justify-center gap-1.5 lg:hidden"
+          :aria-expanded="menuOpen"
+          aria-controls="mobile-menu"
+          @click="menuOpen = !menuOpen"
+        >
+          <span class="sr-only">{{ menuOpen ? t('nav.aria.close') : t('nav.aria.open') }}</span>
+          <span
+            class="block h-px bg-ink transition-all duration-300"
+            :class="menuOpen ? 'w-6 translate-y-[3.5px] rotate-45' : 'w-6'"
+          />
+          <span
+            class="block h-px bg-ink transition-all duration-300"
+            :class="menuOpen ? 'w-6 -translate-y-[3.5px] -rotate-45' : 'w-4'"
+          />
+        </button>
+      </div>
     </div>
 
     <div
       id="mobile-menu"
       class="overflow-hidden border-t border-hairline-soft bg-cream transition-[max-height] duration-500 ease-out lg:hidden"
-      :class="menuOpen ? 'max-h-[520px]' : 'max-h-0'"
+      :class="menuOpen ? 'max-h-[720px]' : 'max-h-0'"
     >
-      <nav class="container-solana flex flex-col py-4" aria-label="Menú mòbil">
+      <nav class="container-solana flex flex-col py-4" :aria-label="t('nav.aria.mobile')">
         <a
           v-for="item in items"
           :key="item.href"
@@ -88,6 +96,9 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
           {{ item.label }}
         </a>
       </nav>
+      <div class="container-solana">
+        <LanguageSwitcher placement="mobile" />
+      </div>
     </div>
   </header>
 </template>

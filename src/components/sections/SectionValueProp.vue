@@ -1,6 +1,9 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
 import BaseButton from '../ui/BaseButton.vue'
 import { useReveal } from '../../composables/useReveal.js'
+
+const { t } = useI18n()
 const { target, isRevealed } = useReveal()
 </script>
 
@@ -15,52 +18,42 @@ const { target, isRevealed } = useReveal()
         <div class="lg:col-span-6">
           <div class="flex items-center gap-4 text-copper">
             <span class="h-px w-10 bg-copper" aria-hidden="true" />
-            <span class="eyebrow">Destil·leria La Solana</span>
+            <span class="eyebrow">{{ t('valueProp.eyebrow') }}</span>
           </div>
           <h2
             id="proposta-title"
             class="mt-8 font-display text-[clamp(2.25rem,5.5vw,4.25rem)] font-light leading-[1] tracking-[-0.02em] text-cream"
           >
-            Destil·lació <span class="italic text-copper">premium</span><br />
-            per a marques<br />
-            i projectes exigents.
+            <template v-if="t('valueProp.titleLine1')">{{ t('valueProp.titleLine1') }} </template><span class="italic text-copper">{{ t('valueProp.titleEmphasis') }}</span><br />
+            {{ t('valueProp.titleLine2') }}<br />
+            {{ t('valueProp.titleLine3') }}
           </h2>
         </div>
 
         <div class="lg:col-span-6 lg:pt-10">
           <div class="space-y-6 text-[1.0625rem] leading-[1.7] text-cream/80">
-            <p>
-              Treballem amb clients que busquen alguna cosa més que una matèria
-              estàndard. Oferim destil·lacions premium de productes naturals
-              d'alta qualitat, orientades a projectes on el procés, l'origen i
-              el resultat final tenen un pes real.
-            </p>
-            <p>
-              El nostre mètode ens permet treballar amb més control. La nostra
-              infraestructura ens permet treballar amb més precisió. I la
-              nostra filosofia ens obliga a no acceptar res que no respongui a
-              un estàndard alt.
-            </p>
+            <p>{{ t('valueProp.body1') }}</p>
+            <p>{{ t('valueProp.body2') }}</p>
           </div>
 
           <div class="mt-12">
             <BaseButton href="#contacte">
-              <span class="!text-cream">Parlar amb l'equip</span>
+              <span class="!text-cream">{{ t('valueProp.cta') }}</span>
             </BaseButton>
           </div>
 
           <dl class="mt-16 grid grid-cols-3 gap-6 border-t border-cream/15 pt-10">
             <div>
-              <dt class="eyebrow !text-copper">+35</dt>
-              <dd class="mt-2 text-sm text-cream/70">Anys d'experiència</dd>
+              <dt class="eyebrow !text-copper">{{ t('valueProp.stats.years.k') }}</dt>
+              <dd class="mt-2 text-sm text-cream/70">{{ t('valueProp.stats.years.v') }}</dd>
             </div>
             <div>
-              <dt class="eyebrow !text-copper">100%</dt>
-              <dd class="mt-2 text-sm text-cream/70">Matèries naturals</dd>
+              <dt class="eyebrow !text-copper">{{ t('valueProp.stats.natural.k') }}</dt>
+              <dd class="mt-2 text-sm text-cream/70">{{ t('valueProp.stats.natural.v') }}</dd>
             </div>
             <div>
-              <dt class="eyebrow !text-copper">01</dt>
-              <dd class="mt-2 text-sm text-cream/70">Destil·ladora premium</dd>
+              <dt class="eyebrow !text-copper">{{ t('valueProp.stats.distiller.k') }}</dt>
+              <dd class="mt-2 text-sm text-cream/70">{{ t('valueProp.stats.distiller.v') }}</dd>
             </div>
           </dl>
         </div>
