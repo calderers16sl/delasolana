@@ -35,12 +35,12 @@ export default {
     titleLine1: 'Distillation',
     titleEmphasis: 'of essential oils',
     titleLine3: 'in the Empordà',
-    lede: 'We distil only high-quality natural ingredients with a high-grade production system designed for the greatest possible purity, precision and aromatic expression.',
-    body: 'At Destil·leria La Solana, much of the added value lies not only in the raw material, but also in the quality of the still, the coil and the production materials. This infrastructure, set in the Empordà, lets us approach every distillation with extreme rigour and reach a premium-grade result.',
+    lede: 'We distil only quality natural ingredients with a high-grade production system designed for the greatest possible purity, precision and aromatic expression.',
+    body: 'At Destil·leria La Solana, much of the added value lies not only in the raw material, but also in the quality of the still and the materials, and of the production system. This infrastructure, set in the Empordà, lets us approach every distillation with extreme rigour and reach a premium-grade result.',
     cta: 'Discover the distillery',
     tagline: 'Premium distillation, from the source',
     videoAlt: 'Distillation in the La Solana workshop, Empordà',
-    videoCaption: 'Stainless-steel coil — La Solana workshop, Empordà',
+    videoCaption: 'Destil·leria La Solana — Canapost, Empordà, Catalonia, Spain',
     statsLocation: 'Est. Empordà',
     statsExperience: '+35 years of experience',
     scroll: 'Scroll',
@@ -156,9 +156,9 @@ export default {
   valueProp: {
     eyebrow: 'Destil·leria La Solana',
     titleLine1: 'Distillation,',
-    titleEmphasis: 'premium',
+    titleEmphasis: ' premium',
     titleLine2: 'for brands',
-    titleLine3: 'and demanding projects.',
+    titleLine3: 'and demanding clients.',
     body1:
       'We work with clients looking for more than a standard ingredient. We offer premium distillations of high-quality natural products, aimed at projects where the process, the origin and the final result really matter.',
     body2:
@@ -174,7 +174,7 @@ export default {
   origins: {
     eyebrow: 'Raw material',
     titleLine1: 'Grown by us,',
-    titleEmphasis: 'sourced from the world',
+    titleEmphasis: 'exported worldwide',
     titleSuffix: '.',
     body1:
       'At La Solana we do not wait for supply: we grow it. We have our own agricultural production, with 10,000 cypresses and hectares dedicated to parsley that go entirely to distillation — a real guarantee of availability, traceability and sustainability.',
@@ -218,7 +218,7 @@ export default {
     imageAlt: 'Empordà landscape — light, vegetation and territory',
     imageCaption: 'The Empordà — light, vegetation and time',
     body1:
-      'La Solana sits in the Empordà, a setting that reinforces the way we understand the natural product, time and process.',
+      'La Solana sits in the Empordà, in Canapost, a setting that reinforces the way we understand the natural product, time and process.',
     body2:
       "It is not just a location. It is part of the distillery's character. The light, the landscape, the relationship with the plant material and a slower, more precise way of working are all part of our language.",
     body3:
@@ -236,7 +236,7 @@ export default {
     titleEmphasis: 'product, process',
     titleLine3: 'and quality.',
     intro:
-      "If you are looking for a distillery with a premium focus, technical judgement and real rigour in the process, we'd be glad to hear about your project.",
+      'If you are looking for the finest natural essential oils, we make them at La Solana.',
     info: {
       locationKey: 'Location',
       locationValue: 'Empordà, Catalonia',

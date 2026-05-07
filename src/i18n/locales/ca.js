@@ -31,12 +31,12 @@ export default {
     titleLine1: 'Destil·lació',
     titleEmphasis: "d'olis essencials",
     titleLine3: "a l'Empordà",
-    lede: "Destil·lem únicament productes naturals d'alta qualitat amb un sistema de producció d'alt nivell, pensat per obtenir la màxima puresa, precisió i expressió aromàtica.",
-    body: "A Destil·leria La Solana, una gran part del valor afegit no rau només en la matèria primera, sinó també en la qualitat de la destil·ladora, del serpentí i dels materials de producció. Aquesta infraestructura, situada a l'Empordà, ens permet treballar cada destil·lació amb una exigència extrema i obtenir un resultat de gamma premium.",
+    lede: "Destil·lem únicament productes naturals de qualitat amb un sistema de producció d'alt nivell, pensat per obtenir la màxima puresa, precisió i expressió aromàtica.",
+    body: "A la Destil·leria La Solana, una gran part del valor afegit no rau només en la matèria primera, sinó també en la qualitat de la destil·ladora i dels materials, i del sistema de producció. Aquesta infraestructura, situada a l'Empordà, ens permet treballar cada destil·lació amb una exigència extrema i obtenir un resultat de gamma premium.",
     cta: 'Descobrir la destil·leria',
     tagline: "Destil·lació premium des de l'origen",
     videoAlt: 'Destil·lació al taller La Solana, Empordà',
-    videoCaption: "Serpentí d'inox — taller La Solana, Empordà",
+    videoCaption: "Destil·leria La Solana - Canapost, Empordà, Catalunya, Spain",
     statsLocation: 'Est. Empordà',
     statsExperience: "+35 anys d'experiència",
     scroll: 'Scroll',
@@ -152,9 +152,9 @@ export default {
   valueProp: {
     eyebrow: 'Destil·leria La Solana',
     titleLine1: 'Destil·lació',
-    titleEmphasis: 'premium',
+    titleEmphasis: ' premium',
     titleLine2: 'per a marques',
-    titleLine3: 'i projectes exigents.',
+    titleLine3: 'i clients exigents.',
     body1:
       "Treballem amb clients que busquen alguna cosa més que una matèria estàndard. Oferim destil·lacions premium de productes naturals d'alta qualitat, orientades a projectes on el procés, l'origen i el resultat final tenen un pes real.",
     body2:
@@ -170,7 +170,7 @@ export default {
   origins: {
     eyebrow: 'Matèria primera',
     titleLine1: 'Cultivada per nosaltres,',
-    titleEmphasis: 'seleccionada al món',
+    titleEmphasis: 'exportada al món',
     titleSuffix: '.',
     body1:
       'A la Solana no esperem el subministrament: el cultivem. Tenim producció agrícola pròpia, amb 10.000 xiprés i hectàrees dedicades al julivert que destinem íntegrament a la destil·lació — una garantia de disponibilitat, traçabilitat i sostenibilitat real.',
@@ -212,7 +212,7 @@ export default {
     imageAlt: "Paisatge de l'Empordà — llum, vegetació i territori",
     imageCaption: "L'Empordà — llum, vegetació i temps",
     body1:
-      "La Solana està ubicada a l'Empordà, un entorn que reforça la nostra manera d'entendre el producte natural, el temps i el procés.",
+      "La Solana està ubicada a l'Empordà, a Canapost, un entorn que reforça la nostra manera d'entendre el producte natural, el temps i el procés.",
     body2:
       "No és només una ubicació. És part del caràcter de la destil·leria. La llum, el paisatge, la relació amb la matèria vegetal i una manera de fer més pausada i més precisa formen part del nostre llenguatge.",
     body3:
@@ -230,7 +230,7 @@ export default {
     titleEmphasis: 'producte, procés',
     titleLine3: 'i qualitat.',
     intro:
-      "Si busques una destil·ladora amb enfocament premium, criteri tècnic i una veritable exigència en el procés, ens agradarà conèixer el teu projecte.",
+      "Si busques els millors olis essencials naturals, els fem a La Solana",
     info: {
       locationKey: 'Ubicació',
       locationValue: 'Empordà, Catalunya',

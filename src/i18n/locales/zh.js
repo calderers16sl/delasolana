@@ -35,12 +35,12 @@ export default {
     titleLine1: '蒸馏',
     titleEmphasis: '精油',
     titleLine3: '于安普尔丹。',
-    lede: '我们仅蒸馏高品质的天然原料，借助高水准的生产体系，致力于呈现最大的纯度、精度与香气表达。',
-    body: '在 Destil·leria La Solana，附加价值不仅来自原料本身，也来自蒸馏器、冷凝盘管以及生产材料的品质。这一坐落于安普尔丹的基础设施，让我们能够以极高的标准处理每一次蒸馏，呈现高端品质的成品。',
+    lede: '我们仅蒸馏优质的天然原料，借助高水准的生产体系，致力于呈现最大的纯度、精度与香气表达。',
+    body: '在 Destil·leria La Solana，附加价值不仅来自原料本身，也来自蒸馏器、所用材料以及生产体系的品质。这一坐落于安普尔丹的基础设施，让我们能够以极高的标准处理每一次蒸馏，呈现高端品质的成品。',
     cta: '探访蒸馏所',
     tagline: '从源头出发的高端蒸馏',
     videoAlt: 'La Solana 工坊的蒸馏，安普尔丹',
-    videoCaption: '不锈钢冷凝盘管 — La Solana 工坊，安普尔丹',
+    videoCaption: 'Destil·leria La Solana — 卡纳波斯特、安普尔丹、加泰罗尼亚、西班牙',
     statsLocation: '所在地：安普尔丹',
     statsExperience: '逾 35 年经验',
     scroll: '向下滚动',
@@ -158,7 +158,7 @@ export default {
     titleLine1: '',
     titleEmphasis: '高端',
     titleLine2: '蒸馏，献给',
-    titleLine3: '挑剔的品牌与项目。',
+    titleLine3: '挑剔的品牌与客户。',
     body1:
       '我们与那些追求超越标准原料的客户合作。我们提供以高品质天然原料为基础的高端蒸馏，面向真正重视工艺、产地与最终成品的项目。',
     body2:
@@ -174,7 +174,7 @@ export default {
   origins: {
     eyebrow: '原材料',
     titleLine1: '由我们亲手栽培，',
-    titleEmphasis: '在世界各地甄选',
+    titleEmphasis: '出口至世界各地',
     titleSuffix: '。',
     body1:
       '在 La Solana，我们不等待供应，而是亲自栽培。我们拥有自有农业生产，包括 10,000 棵柏木和大片欧芹田，全部用于蒸馏 — 这是供应、可追溯与可持续性的真正保证。',
@@ -218,7 +218,7 @@ export default {
     imageAlt: '安普尔丹的风景 — 光线、植被与土地',
     imageCaption: '安普尔丹 — 光线、植被与时间',
     body1:
-      'La Solana 位于安普尔丹，这片土地强化了我们对天然产品、时间与工艺的理解。',
+      'La Solana 位于安普尔丹的卡纳波斯特，这片土地强化了我们对天然产品、时间与工艺的理解。',
     body2:
       '它不仅是一个地点，更是蒸馏所性格的一部分。光线、风景、与植物的关系，以及一种更舒缓、更精确的工作方式，构成了我们的语言。',
     body3:
@@ -236,7 +236,7 @@ export default {
     titleEmphasis: '产品、工艺',
     titleLine3: '与品质。',
     intro:
-      '如果您正在寻找一家具备高端定位、技术判断与真正工艺严谨度的蒸馏所，我们很乐意了解您的项目。',
+      '如果您正在寻找最优质的天然精油，我们就在 La Solana 为您制作。',
     info: {
       locationKey: '所在地',
       locationValue: '安普尔丹，加泰罗尼亚',

@@ -10,8 +10,10 @@ const { target, isRevealed } = useReveal()
 <template>
   <section id="proposta" class="relative overflow-hidden bg-ink text-cream" aria-labelledby="proposta-title">
     <div class="pointer-events-none absolute inset-0 opacity-[0.12]" aria-hidden="true">
-      <div class="absolute -left-40 top-0 h-[60rem] w-[60rem] rounded-full bg-[radial-gradient(circle,rgba(187,112,78,0.6),transparent_60%)]" />
-      <div class="absolute -right-60 -bottom-40 h-[50rem] w-[50rem] rounded-full bg-[radial-gradient(circle,rgba(238,236,233,0.35),transparent_60%)]" />
+      <div
+        class="absolute -left-40 top-0 h-[60rem] w-[60rem] rounded-full bg-[radial-gradient(circle,rgba(187,112,78,0.6),transparent_60%)]" />
+      <div
+        class="absolute -right-60 -bottom-40 h-[50rem] w-[50rem] rounded-full bg-[radial-gradient(circle,rgba(238,236,233,0.35),transparent_60%)]" />
     </div>
     <div class="container-solana relative section-y">
       <div ref="target" class="reveal grid gap-16 lg:grid-cols-12" :class="{ 'is-revealed': isRevealed }">
@@ -20,11 +22,10 @@ const { target, isRevealed } = useReveal()
             <span class="h-px w-10 bg-copper" aria-hidden="true" />
             <span class="eyebrow">{{ t('valueProp.eyebrow') }}</span>
           </div>
-          <h2
-            id="proposta-title"
-            class="mt-8 font-display text-[clamp(2.25rem,5.5vw,4.25rem)] font-light leading-[1] tracking-[-0.02em] text-cream"
-          >
-            <template v-if="t('valueProp.titleLine1')">{{ t('valueProp.titleLine1') }} </template><span class="italic text-copper">{{ t('valueProp.titleEmphasis') }}</span><br />
+          <h2 id="proposta-title"
+            class="mt-8 font-display text-[clamp(2.25rem,5.5vw,4.25rem)] font-light leading-[1] tracking-[-0.02em] text-cream">
+            <template v-if="t('valueProp.titleLine1')">{{ t('valueProp.titleLine1') }} </template><span
+              class="italic text-copper">{{ t('valueProp.titleEmphasis') }}</span><br />
             {{ t('valueProp.titleLine2') }}<br />
             {{ t('valueProp.titleLine3') }}
           </h2>
@@ -33,7 +34,7 @@ const { target, isRevealed } = useReveal()
         <div class="lg:col-span-6 lg:pt-10">
           <div class="space-y-6 text-[1.0625rem] leading-[1.7] text-cream/80">
             <p>{{ t('valueProp.body1') }}</p>
-            <p>{{ t('valueProp.body2') }}</p>
+
           </div>
 
           <div class="mt-12">

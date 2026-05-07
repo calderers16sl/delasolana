@@ -34,12 +34,11 @@ const fitxes = computed(() =>
       <div ref="target" class="reveal" :class="{ 'is-revealed': isRevealed }">
         <div class="mx-auto max-w-2xl text-center">
           <p class="eyebrow">{{ t('distillations.eyebrow') }}</p>
-          <h2
-            id="destilacions-title"
-            class="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] font-light leading-[1.05] text-ink"
-          >
+          <h2 id="destilacions-title"
+            class="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] font-light leading-[1.05] text-ink">
             {{ t('distillations.titleLine1') }}<br class="hidden sm:block" />
-            {{ t('distillations.titlePre') }} <span class="italic text-copper">{{ t('distillations.titleEmphasis') }}</span>{{ t('distillations.titleSuffix') }}
+            {{ t('distillations.titlePre') }} <span class="italic text-copper">{{ t('distillations.titleEmphasis')
+              }}</span>{{ t('distillations.titleSuffix') }}
           </h2>
           <p class="prose-solana mt-6 text-[1rem]">
             {{ t('distillations.intro') }}
@@ -47,26 +46,11 @@ const fitxes = computed(() =>
         </div>
 
         <div class="mt-16 grid gap-10 sm:grid-cols-2 xl:grid-cols-3 xl:gap-8">
-          <DistillationCard
-            v-for="f in fitxes"
-            :key="f.index"
-            :index="f.index"
-            :title="f.title"
-            :subtitle="f.subtitle"
-            :text="f.text"
-            :image="f.image"
-            :video="f.video"
-            :tone="f.tone"
-            :alt="`${f.title} — ${f.subtitle || ''}`"
-          />
+          <DistillationCard v-for="f in fitxes" :key="f.index" :index="f.index" :title="f.title" :subtitle="f.subtitle"
+            :text="f.text" :image="f.image" :video="f.video" :tone="f.tone" :alt="`${f.title} — ${f.subtitle || ''}`" />
         </div>
 
-        <div class="mt-20 flex flex-col items-center gap-8 text-center">
-          <p class="mx-auto max-w-2xl font-display text-[clamp(1.25rem,2vw,1.625rem)] italic leading-snug text-ink">
-            {{ t('distillations.closing') }}
-          </p>
-          <BaseButton href="#contacte" variant="ghost">{{ t('distillations.cta') }}</BaseButton>
-        </div>
+
       </div>
     </div>
   </section>

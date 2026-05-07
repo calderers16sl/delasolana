@@ -35,12 +35,12 @@ export default {
     titleLine1: 'Destilación',
     titleEmphasis: 'de aceites esenciales',
     titleLine3: 'en el Empordà',
-    lede: 'Destilamos únicamente productos naturales de alta calidad con un sistema de producción de alto nivel, pensado para obtener la máxima pureza, precisión y expresión aromática.',
-    body: 'En Destilería La Solana, gran parte del valor añadido no reside solo en la materia prima, sino también en la calidad del alambique, del serpentín y de los materiales de producción. Esta infraestructura, situada en el Empordà, nos permite trabajar cada destilación con una exigencia extrema y obtener un resultado de gama premium.',
+    lede: 'Destilamos únicamente productos naturales de calidad con un sistema de producción de alto nivel, pensado para obtener la máxima pureza, precisión y expresión aromática.',
+    body: 'En la Destilería La Solana, gran parte del valor añadido no reside solo en la materia prima, sino también en la calidad del alambique y de los materiales, y del sistema de producción. Esta infraestructura, situada en el Empordà, nos permite trabajar cada destilación con una exigencia extrema y obtener un resultado de gama premium.',
     cta: 'Descubrir la destilería',
     tagline: 'Destilación premium desde el origen',
     videoAlt: 'Destilación en el taller La Solana, Empordà',
-    videoCaption: 'Serpentín de inox — taller La Solana, Empordà',
+    videoCaption: 'Destilería La Solana - Canapost, Empordà, Cataluña, España',
     statsLocation: 'Est. Empordà',
     statsExperience: '+35 años de experiencia',
     scroll: 'Scroll',
@@ -156,9 +156,9 @@ export default {
   valueProp: {
     eyebrow: 'Destilería La Solana',
     titleLine1: 'Destilación',
-    titleEmphasis: 'premium',
+    titleEmphasis: ' premium',
     titleLine2: 'para marcas',
-    titleLine3: 'y proyectos exigentes.',
+    titleLine3: 'y clientes exigentes.',
     body1:
       'Trabajamos con clientes que buscan algo más que una materia estándar. Ofrecemos destilaciones premium de productos naturales de alta calidad, orientadas a proyectos donde el proceso, el origen y el resultado final tienen un peso real.',
     body2:
@@ -174,7 +174,7 @@ export default {
   origins: {
     eyebrow: 'Materia prima',
     titleLine1: 'Cultivada por nosotros,',
-    titleEmphasis: 'seleccionada en el mundo',
+    titleEmphasis: 'exportada al mundo',
     titleSuffix: '.',
     body1:
       'En La Solana no esperamos el suministro: lo cultivamos. Tenemos producción agrícola propia, con 10.000 cipreses y hectáreas dedicadas al perejil que destinamos íntegramente a la destilación — una garantía de disponibilidad, trazabilidad y sostenibilidad real.',
@@ -218,7 +218,7 @@ export default {
     imageAlt: 'Paisaje del Empordà — luz, vegetación y territorio',
     imageCaption: 'El Empordà — luz, vegetación y tiempo',
     body1:
-      'La Solana está ubicada en el Empordà, un entorno que refuerza nuestra manera de entender el producto natural, el tiempo y el proceso.',
+      'La Solana está ubicada en el Empordà, en Canapost, un entorno que refuerza nuestra manera de entender el producto natural, el tiempo y el proceso.',
     body2:
       'No es solo una ubicación. Es parte del carácter de la destilería. La luz, el paisaje, la relación con la materia vegetal y una manera de hacer más pausada y más precisa forman parte de nuestro lenguaje.',
     body3:
@@ -236,7 +236,7 @@ export default {
     titleEmphasis: 'producto, proceso',
     titleLine3: 'y calidad.',
     intro:
-      'Si buscas una destilería con enfoque premium, criterio técnico y una verdadera exigencia en el proceso, nos gustará conocer tu proyecto.',
+      'Si buscas los mejores aceites esenciales naturales, los hacemos en La Solana.',
     info: {
       locationKey: 'Ubicación',
       locationValue: 'Empordà, Cataluña',

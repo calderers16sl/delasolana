@@ -11,7 +11,7 @@ const { target, isRevealed } = useReveal()
 const stepKeys = [
   { key: 'reception', n: '01', video: '/unloading.mp4', tone: 'copper' },
   { key: 'loading', n: '02', video: '/carrega.mp4', tone: 'clay' },
-  { key: 'distill', n: '03', video: '/destilacio-jordi.mp4', tone: 'copper' },
+  { key: 'distill', n: '03', video: '/destilacio-fase3.mp4', tone: 'copper' },
   { key: 'monitor', n: '04', video: '/distillation_2.mp4', tone: 'clay' },
   { key: 'bottling', n: '05', video: '/bottling.mp4', tone: 'clay' },
 ]
@@ -37,10 +37,8 @@ const passos = computed(() =>
             <SectionEyebrow index="02" :label="t('process.eyebrow')" />
           </div>
 
-          <h2
-            id="proces-title"
-            class="mt-8 font-display text-[clamp(2rem,4.5vw,3.25rem)] font-light leading-[1.05] text-ink"
-          >
+          <h2 id="proces-title"
+            class="mt-8 font-display text-[clamp(2rem,4.5vw,3.25rem)] font-light leading-[1.05] text-ink">
             {{ t('process.titleLine1') }}
             {{ t('process.titleConnector') }} <span class="italic text-copper">{{ t('process.titleEmphasis') }}</span>
             {{ t('process.titleLine3') }}
@@ -54,17 +52,8 @@ const passos = computed(() =>
         </div>
 
         <div class="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xl:gap-8">
-          <DistillationCard
-            v-for="p in passos"
-            :key="p.index"
-            :index="p.index"
-            :title="p.title"
-            :subtitle="p.subtitle"
-            :text="p.text"
-            :video="p.video"
-            :tone="p.tone"
-            :alt="`${p.title} — ${p.subtitle}`"
-          />
+          <DistillationCard v-for="p in passos" :key="p.index" :index="p.index" :title="p.title" :subtitle="p.subtitle"
+            :text="p.text" :video="p.video" :tone="p.tone" :alt="`${p.title} — ${p.subtitle}`" />
         </div>
       </div>
     </div>

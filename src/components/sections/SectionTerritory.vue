@@ -25,7 +25,7 @@ const { target, isRevealed } = useReveal()
           </div>
           <div class="lg:col-span-8">
             <ImageSlot
-              video="/emporda2.mp4"
+              video="/solana1.mp4"
               :alt="t('territory.imageAlt')"
               :caption="t('territory.imageCaption')"
               ratio="16/9"

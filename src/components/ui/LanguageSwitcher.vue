@@ -82,7 +82,7 @@ onBeforeUnmount(() => {
   <div v-else ref="root" class="relative">
     <button
       type="button"
-      class="group inline-flex h-10 w-10 items-center justify-center rounded-full text-ink/80 transition-colors duration-300 hover:text-copper"
+      class="group inline-flex h-10 items-center gap-2 rounded-full px-3 text-ink/80 transition-colors duration-300 hover:text-copper"
       :aria-label="t('nav.aria.languageMenu')"
       :aria-expanded="open"
       aria-haspopup="menu"
@@ -90,6 +90,9 @@ onBeforeUnmount(() => {
       @click="toggle"
     >
       <span class="sr-only">{{ t('language.current') }}: {{ current.name }}</span>
+      <span class="text-[0.82rem] font-medium uppercase tracking-[0.2em]" aria-hidden="true">
+        Language
+      </span>
       <svg viewBox="0 0 20 20" fill="none" class="h-5 w-5" aria-hidden="true">
         <circle cx="10" cy="10" r="7.25" stroke="currentColor" stroke-width="1.25" />
         <path

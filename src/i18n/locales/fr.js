@@ -35,12 +35,12 @@ export default {
     titleLine1: 'Distillation',
     titleEmphasis: "d'huiles essentielles",
     titleLine3: "dans l'Empordà",
-    lede: "Nous distillons uniquement des produits naturels de haute qualité, avec un système de production de haut niveau, pensé pour atteindre la pureté, la précision et l'expression aromatique les plus grandes.",
-    body: "Chez Destil·leria La Solana, une grande partie de la valeur ajoutée ne tient pas seulement à la matière première, mais aussi à la qualité de l'alambic, du serpentin et des matériaux de production. Cette infrastructure, située dans l'Empordà, nous permet d'aborder chaque distillation avec une exigence extrême et d'obtenir un résultat de gamme premium.",
+    lede: "Nous distillons uniquement des produits naturels de qualité, avec un système de production de haut niveau, pensé pour atteindre la pureté, la précision et l'expression aromatique les plus grandes.",
+    body: "À la Destil·leria La Solana, une grande partie de la valeur ajoutée ne tient pas seulement à la matière première, mais aussi à la qualité de l'alambic et des matériaux, et du système de production. Cette infrastructure, située dans l'Empordà, nous permet d'aborder chaque distillation avec une exigence extrême et d'obtenir un résultat de gamme premium.",
     cta: 'Découvrir la distillerie',
     tagline: "Distillation premium dès l'origine",
     videoAlt: "Distillation à l'atelier La Solana, Empordà",
-    videoCaption: "Serpentin inox — atelier La Solana, Empordà",
+    videoCaption: "Destil·leria La Solana — Canapost, Empordà, Catalogne, Espagne",
     statsLocation: 'Est. Empordà',
     statsExperience: "+35 ans d'expérience",
     scroll: 'Défiler',
@@ -156,9 +156,9 @@ export default {
   valueProp: {
     eyebrow: 'Destil·leria La Solana',
     titleLine1: 'Distillation',
-    titleEmphasis: 'premium',
+    titleEmphasis: ' premium',
     titleLine2: 'pour les marques',
-    titleLine3: 'et les projets exigeants.',
+    titleLine3: 'et les clients exigeants.',
     body1:
       "Nous travaillons avec des clients qui cherchent davantage qu'une matière standard. Nous proposons des distillations premium de produits naturels de haute qualité, orientées vers des projets où le procédé, l'origine et le résultat final ont un poids réel.",
     body2:
@@ -174,7 +174,7 @@ export default {
   origins: {
     eyebrow: 'Matière première',
     titleLine1: 'Cultivée par nos soins,',
-    titleEmphasis: 'sourcée dans le monde',
+    titleEmphasis: 'exportée dans le monde',
     titleSuffix: '.',
     body1:
       "À La Solana, nous n'attendons pas l'approvisionnement : nous le cultivons. Nous avons notre propre production agricole, avec 10 000 cyprès et des hectares dédiés au persil entièrement destinés à la distillation — une vraie garantie de disponibilité, de traçabilité et de durabilité.",
@@ -218,7 +218,7 @@ export default {
     imageAlt: "Paysage de l'Empordà — lumière, végétation et territoire",
     imageCaption: "L'Empordà — lumière, végétation et temps",
     body1:
-      "La Solana est située dans l'Empordà, un environnement qui renforce notre manière de comprendre le produit naturel, le temps et le procédé.",
+      "La Solana est située dans l'Empordà, à Canapost, un environnement qui renforce notre manière de comprendre le produit naturel, le temps et le procédé.",
     body2:
       "Ce n'est pas seulement un emplacement. C'est une part du caractère de la distillerie. La lumière, le paysage, la relation à la matière végétale et une manière de faire plus posée et plus précise font partie de notre langage.",
     body3:
@@ -236,7 +236,7 @@ export default {
     titleEmphasis: 'produit, procédé',
     titleLine3: 'et qualité.',
     intro:
-      "Si vous cherchez une distillerie avec une approche premium, une rigueur technique et une véritable exigence dans le procédé, nous serons heureux de découvrir votre projet.",
+      "Si vous cherchez les meilleures huiles essentielles naturelles, nous les fabriquons à La Solana.",
     info: {
       locationKey: 'Lieu',
       locationValue: 'Empordà, Catalogne',
