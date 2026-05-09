@@ -283,7 +283,7 @@ export default {
 
   footer: {
     tagline: '精油的高端蒸馏。',
-    location: '安普尔丹，加泰罗尼亚。',
+    location: '安普尔丹，加泰罗尼亚，西班牙。',
     professional: '专业合作联系',
     sections: {
       primary: '菜单',

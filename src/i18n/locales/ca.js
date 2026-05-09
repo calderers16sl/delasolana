@@ -276,7 +276,7 @@ export default {
 
   footer: {
     tagline: "Destil·lació premium d'olis essencials.",
-    location: 'Empordà, Catalunya.',
+    location: 'Empordà, Catalunya, Spain.',
     professional: 'Contacte professional',
     sections: {
       primary: 'Menú',

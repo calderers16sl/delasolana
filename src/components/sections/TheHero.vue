@@ -65,7 +65,7 @@ const cardVideoLoaded = ref(false)
             </div>
           </div>
 
-          <div class="order-1 lg:order-2 lg:col-span-5">
+          <div class="hidden lg:order-2 lg:col-span-5 lg:block">
             <div class="relative">
               <div class="pointer-events-none absolute -left-6 -top-6 hidden h-40 w-px bg-copper/40 lg:block" aria-hidden="true" />
               <div class="pointer-events-none absolute -right-6 -bottom-6 hidden h-40 w-px bg-copper/40 lg:block" aria-hidden="true" />

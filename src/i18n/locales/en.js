@@ -283,7 +283,7 @@ export default {
 
   footer: {
     tagline: 'Premium distillation of essential oils.',
-    location: 'Empordà, Catalonia.',
+    location: 'Empordà, Catalonia, Spain.',
     professional: 'Professional contact',
     sections: {
       primary: 'Menu',

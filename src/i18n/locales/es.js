@@ -283,7 +283,7 @@ export default {
 
   footer: {
     tagline: 'Destilación premium de aceites esenciales.',
-    location: 'Empordà, Cataluña.',
+    location: 'Empordà, Cataluña, España.',
     professional: 'Contacto profesional',
     sections: {
       primary: 'Menú',

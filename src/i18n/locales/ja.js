@@ -283,7 +283,7 @@ export default {
 
   footer: {
     tagline: 'エッセンシャルオイルのプレミアム蒸留。',
-    location: 'エンポルダー、カタルーニャ。',
+    location: 'エンポルダー、カタルーニャ、スペイン。',
     professional: 'プロフェッショナル向けお問い合わせ',
     sections: {
       primary: 'メニュー',
