@@ -27,7 +27,7 @@ const cardVideoLoaded = ref(false)
     <div class="absolute inset-0 bg-cream/75" aria-hidden="true" />
 
     <div class="relative z-10 flex min-h-[100svh] flex-col">
-      <div class="container-solana flex-1 py-24 lg:py-0 lg:flex lg:items-center">
+      <div class="container-solana flex-1 pt-8 pb-24 lg:py-0 lg:flex lg:items-center">
         <div class="grid w-full items-center gap-14 lg:grid-cols-12 lg:gap-16">
           <div
             ref="target"

@@ -3,10 +3,6 @@ import { ref, computed, onBeforeUnmount, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { SUPPORTED, setLocale } from '../../i18n'
 
-const props = defineProps({
-  placement: { type: String, default: 'desktop' }, // 'desktop' | 'mobile'
-})
-
 const { t, locale } = useI18n()
 const open = ref(false)
 const root = ref(null)
@@ -54,32 +50,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <!-- Mobile: inline language list inside the existing menu panel -->
-  <div v-if="placement === 'mobile'" class="border-t border-hairline-soft py-4">
-    <p class="eyebrow !text-clay/70">{{ t('language.label') }}</p>
-    <ul class="mt-3 grid grid-cols-2 gap-x-6 gap-y-3">
-      <li v-for="l in SUPPORTED" :key="l.code">
-        <button
-          type="button"
-          role="menuitemradio"
-          :aria-checked="l.code === locale"
-          class="group inline-flex items-center gap-3 font-display text-base"
-          :class="l.code === locale ? 'text-copper' : 'text-ink'"
-          @click="pick(l.code)"
-        >
-          <span
-            class="h-px w-3 bg-copper transition-all duration-300"
-            :class="l.code === locale ? 'opacity-100' : 'opacity-0 group-hover:opacity-60'"
-            aria-hidden="true"
-          />
-          {{ l.name }}
-        </button>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Desktop: globe icon button + popover -->
-  <div v-else ref="root" class="relative">
+  <div ref="root" class="relative">
     <button
       type="button"
       class="group inline-flex h-10 items-center gap-2 rounded-full px-3 text-ink/80 transition-colors duration-300 hover:text-copper"
@@ -91,7 +62,7 @@ onBeforeUnmount(() => {
     >
       <span class="sr-only">{{ t('language.current') }}: {{ current.name }}</span>
       <span class="text-[0.82rem] font-medium uppercase tracking-[0.2em]" aria-hidden="true">
-        Language
+        Lang.
       </span>
       <svg viewBox="0 0 20 20" fill="none" class="h-5 w-5" aria-hidden="true">
         <circle cx="10" cy="10" r="7.25" stroke="currentColor" stroke-width="1.25" />
