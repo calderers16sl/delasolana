@@ -40,9 +40,14 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
     :class="scrolled ? 'bg-cream/92 border-b border-hairline-soft' : 'bg-cream/60'"
   >
     <div class="container-solana flex h-16 items-center justify-between lg:h-20">
-      <a href="#hero" class="group flex items-baseline gap-2 font-display text-ink" @click="closeMenu">
-        <span class="text-xl tracking-[-0.02em] lg:text-2xl">{{ t('nav.brand') }}</span>
-        <span class="hidden text-[0.7rem] uppercase tracking-[0.28em] text-copper lg:inline">{{ t('nav.brandSuffix') }}</span>
+      <a href="#hero" class="group flex items-center font-display text-ink" @click="closeMenu">
+        <img
+          src="/logo.png"
+          :alt="t('nav.brand')"
+          class="h-8 w-auto lg:h-10"
+          width="1000"
+          height="180"
+        />
       </a>
 
       <div class="flex items-center gap-2 lg:gap-6">
