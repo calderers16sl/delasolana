@@ -88,7 +88,7 @@ onBeforeUnmount(() => {
         id="language-menu"
         role="menu"
         :aria-label="t('nav.aria.languageMenu')"
-        class="absolute right-0 z-50 mt-3 min-w-[12rem] origin-top-right border border-hairline-soft bg-paper py-2 shadow-[0_8px_24px_-8px_rgba(42,31,23,0.18)]"
+        class="absolute left-0 lg:left-auto lg:right-0 z-50 mt-3 min-w-[12rem] origin-top-left lg:origin-top-right border border-hairline-soft bg-paper py-2 shadow-[0_8px_24px_-8px_rgba(42,31,23,0.18)]"
       >
         <li v-for="l in SUPPORTED" :key="l.code">
           <button

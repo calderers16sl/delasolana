@@ -45,20 +45,25 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
         <LanguageSwitcher />
         <button
           type="button"
-          class="flex h-10 w-10 flex-col items-end justify-center gap-1.5"
+          class="flex h-10 items-center gap-2 pl-2 text-ink/80 transition-colors duration-300 hover:text-ink"
           :aria-expanded="menuOpen"
           aria-controls="mobile-menu"
           @click="menuOpen = !menuOpen"
         >
           <span class="sr-only">{{ menuOpen ? t('nav.aria.close') : t('nav.aria.open') }}</span>
-          <span
-            class="block h-px bg-ink transition-all duration-300"
-            :class="menuOpen ? 'w-6 translate-y-[3.5px] rotate-45' : 'w-6'"
-          />
-          <span
-            class="block h-px bg-ink transition-all duration-300"
-            :class="menuOpen ? 'w-6 -translate-y-[3.5px] -rotate-45' : 'w-4'"
-          />
+          <span class="text-[0.82rem] font-medium uppercase tracking-[0.2em]" aria-hidden="true">
+            {{ t('nav.menu') }}
+          </span>
+          <span class="flex flex-col items-end gap-1.5">
+            <span
+              class="block h-px bg-ink transition-all duration-300"
+              :class="menuOpen ? 'w-6 translate-y-[3.5px] rotate-45' : 'w-6'"
+            />
+            <span
+              class="block h-px bg-ink transition-all duration-300"
+              :class="menuOpen ? 'w-6 -translate-y-[3.5px] -rotate-45' : 'w-4'"
+            />
+          </span>
         </button>
       </div>
       <a href="#hero" class="flex h-14 items-center justify-center" @click="closeMenu">

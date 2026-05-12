@@ -12,6 +12,7 @@ export default {
 
   nav: {
     skip: '本文へスキップ',
+    menu: 'メニュー',
     brand: 'La Solana',
     brandSuffix: '蒸留所',
     items: {

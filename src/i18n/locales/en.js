@@ -12,6 +12,7 @@ export default {
 
   nav: {
     skip: 'Skip to content',
+    menu: 'Menu',
     brand: 'La Solana',
     brandSuffix: 'Distillery',
     items: {

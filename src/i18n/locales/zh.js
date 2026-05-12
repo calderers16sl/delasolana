@@ -12,6 +12,7 @@ export default {
 
   nav: {
     skip: '跳至正文',
+    menu: '菜单',
     brand: 'La Solana',
     brandSuffix: '蒸馏所',
     items: {

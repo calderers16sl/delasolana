@@ -8,6 +8,7 @@ export default {
 
   nav: {
     skip: 'Saltar al contingut',
+    menu: 'Menú',
     brand: 'La Solana',
     brandSuffix: 'Destil·leria',
     items: {
