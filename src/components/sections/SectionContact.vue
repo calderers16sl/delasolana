@@ -13,6 +13,7 @@ const form = reactive({
   organitzacio: '',
   assumpte: 'inquiry',
   missatge: '',
+  website: '', // honeypot — must stay empty; bots tend to fill it
 })
 // errors holds i18n keys (not resolved strings) so messages re-render reactively when the locale changes.
 const errors = reactive({})
@@ -64,6 +65,7 @@ function reset() {
   form.organitzacio = ''
   form.assumpte = 'inquiry'
   form.missatge = ''
+  form.website = ''
   Object.keys(errors).forEach((k) => delete errors[k])
   status.value = 'idle'
 }
@@ -113,6 +115,17 @@ const fieldClass =
                 @submit.prevent="onSubmit"
                 class="space-y-8"
               >
+                <!-- Honeypot: hidden from humans, catches bots. Keep it empty. -->
+                <div class="absolute left-[-9999px]" aria-hidden="true">
+                  <label>No omplir aquest camp
+                    <input
+                      v-model="form.website"
+                      type="text"
+                      tabindex="-1"
+                      autocomplete="off"
+                    />
+                  </label>
+                </div>
                 <div class="grid gap-8 sm:grid-cols-2">
                   <div>
                     <label for="nom" class="eyebrow !text-clay/70">{{ t('contact.fields.name') }}</label>
