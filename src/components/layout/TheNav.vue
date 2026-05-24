@@ -71,8 +71,8 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
           src="/logo.png"
           :alt="t('nav.brand')"
           class="h-10 w-auto"
-          width="1000"
-          height="180"
+          width="1480"
+          height="184"
         />
       </a>
     </div>
@@ -84,8 +84,8 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
           src="/logo.png"
           :alt="t('nav.brand')"
           class="h-12 w-auto"
-          width="1000"
-          height="180"
+          width="1480"
+          height="184"
         />
       </a>
 
