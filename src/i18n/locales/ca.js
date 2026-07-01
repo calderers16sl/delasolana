@@ -174,7 +174,7 @@ export default {
     titleEmphasis: 'exportada al món',
     titleSuffix: '.',
     body1:
-      'A la Solana no esperem el subministrament: el cultivem. Tenim producció agrícola pròpia, amb 10.000 xiprés i hectàrees dedicades al julivert que destinem íntegrament a la destil·lació — una garantia de disponibilitat, traçabilitat i sostenibilitat real.',
+      'A la Solana no esperem el subministrament: el cultivem. Tenim producció agrícola pròpia, amb 10.000 xiprers i hectàrees dedicades al julivert que destinem íntegrament a la destil·lació — una garantia de disponibilitat, traçabilitat i sostenibilitat real.',
     body2Prefix: 'Per als botànics que demanen un origen específic, anem a buscar-lo. Importem llavors de ',
     body2Middle: ' de la vessant pacífica de Llatinoamèrica i ',
     body2Suffix: " de la costa atlàntica del Brasil, dues espècies que només expressen el seu caràcter ple en el seu territori d'origen.",
@@ -185,8 +185,8 @@ export default {
     blocks: {
       cypress: {
         tag: 'Cultiu propi',
-        title: '10.000 xiprés',
-        text: "Una plantació pròpia de xiprés mediterrani, criada amb paciència i destinada a obtenir essències netes, fidels al perfil aromàtic de l'Empordà.",
+        title: '10.000 xiprers',
+        text: "Una plantació pròpia de xiprers mediterranis, criada amb paciència i destinada a obtenir essències netes, fidels al perfil aromàtic de l'Empordà.",
       },
       parsley: {
         tag: 'Cultiu propi',
